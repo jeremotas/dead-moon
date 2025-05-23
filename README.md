@@ -39,11 +39,3 @@ Hay un temporizador que no se muestra explícitamente al jugador, pero que depen
 
 * [Moodboard](https://app.weje.io/b/-OMCsh8-YOkWbN_2xfld)
 * [Música](https://open.spotify.com/intl-es/track/0MU16jrOHNryD5F4nmPPh8?si=9097be6407d6414c)
-
-### Referencias de arte
-
-Algunas referencias visuales para el diseño de los personajes y escenarios que pueden verse en el moodboard:
-
-* ![Dead Moon](imagenes/deadmoon.png)
-* ![Astronautas](imagenes/astronautas.jpeg)
-* ![Retro](imagenes/robot.jpg)
