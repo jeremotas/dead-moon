@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1xs1chs4d233"]
+
+[ext_resource type="Script" uid="uid://c575mvvf6qjtr" path="res://scenes/test.gd" id="1_74lek"]
+[ext_resource type="PackedScene" uid="uid://qhi0uaf8uxdj" path="res://art/Laberinto_Jeremias_Cavallero.blend" id="1_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://kevss5y55756" path="res://art/Reloj_de_arena_v12_Jeremias_Cavallero.blend" id="3_j5jx5"]
+
+[sub_resource type="Environment" id="Environment_iyx0m"]
+background_mode = 1
+background_energy_multiplier = 0.0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.98
+glow_strength = 1.11
+glow_bloom = 1.0
+fog_enabled = true
+fog_light_color = Color(0.101854, 0.11473, 0.134973, 1)
+fog_density = 0.0382
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_74lek")
+
+[node name="Laberinto_Jeremias_Cavallero" parent="." instance=ExtResource("1_iyx0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23449, -3.92631, 2.86417)
+
+[node name="Reloj_de_arena_v12_Jeremias_Cavallero" parent="." instance=ExtResource("3_j5jx5")]
+transform = Transform3D(1, 0, 0, 0, 0.927628, -0.373506, 0, 0.373506, 0.927628, 68.001, 0.67417, -4.50517)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.238466, 0, -0.971151, 0, 1, 0, 0.971151, 0, 0.238466, -67.3594, -2.05045, -9.05978)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iyx0m")

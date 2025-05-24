@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rel738eivwyr"
+path="res://.godot/imported/Dead Moon  - Mara V.mp3-eb36b24d1f3d98f4950066ba06eb8a41.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Dead Moon  - Mara V.mp3"
+dest_files=["res://.godot/imported/Dead Moon  - Mara V.mp3-eb36b24d1f3d98f4950066ba06eb8a41.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
