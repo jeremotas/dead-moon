@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdfux0ts7g1lf"]
+
+[ext_resource type="PackedScene" uid="uid://ctti8cy0ck0re" path="res://art/Mara V (Personaje) - Facundo Túpac Martínez.blend" id="1_ckq7e"]
+[ext_resource type="Script" uid="uid://0ca0irwwwrbi" path="res://characters/marav.gd" id="1_plonu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckq7e"]
+
+[node name="MaraV" type="CharacterBody3D"]
+safe_margin = 0.1
+script = ExtResource("1_plonu")
+
+[node name="Mara V (Personaje) - Facundo Túpac Martínez" parent="." instance=ExtResource("1_ckq7e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.745, 0)
+shape = SubResource("CapsuleShape3D_ckq7e")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.997718, -0.0219308, -0.0638525, -0.0422687, 0.940383, 0.33748, 0.0526446, 0.339409, -0.939165, 0, 0.217104, -0.913391)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5999, 1.24792, -1.74952)
