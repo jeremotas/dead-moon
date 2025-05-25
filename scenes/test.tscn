@@ -9,11 +9,13 @@ background_mode = 1
 background_energy_multiplier = 0.0
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 1.98
-glow_strength = 1.11
+glow_intensity = 6.01
+glow_strength = 1.12
 glow_bloom = 1.0
+glow_hdr_threshold = 1.26
+glow_map_strength = 0.79
 fog_enabled = true
-fog_light_color = Color(0.101854, 0.11473, 0.134973, 1)
+fog_light_color = Color(0.043079, 0.0511794, 0.0639145, 1)
 fog_density = 0.0382
 
 [node name="TestScene" type="Node3D"]
