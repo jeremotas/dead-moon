@@ -3,7 +3,7 @@ extends CharacterBody3D
 const MAX_SPEED = 6.0
 const MIN_SPEED = 3.0
 const ACCELERATION  = 2.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 14.5
 const ROTATION_ACCELERATION = 0.2
 const MAX_ROTATION_SPEED = 4.0
 
@@ -18,8 +18,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	var forward_direction = $Camera3D.get_global_transform().basis.z
-	var lateral_direction = $Camera3D.get_global_transform().basis.x
+	var forward_direction = $SpringArm3D/Camera3D.get_global_transform().basis.z
+	var lateral_direction = $SpringArm3D/Camera3D.get_global_transform().basis.x
 	var move_direction = Vector3.ZERO
 	if Input.is_action_pressed("strafe_left"):
 		move_direction -= lateral_direction
@@ -53,5 +53,5 @@ func _physics_process(delta):
 
 	if rotate_camera != 0:
 		rotate_y( rotate_camera * delta)
-	print(velocity)
+	# print(velocity)
 	move_and_slide()
