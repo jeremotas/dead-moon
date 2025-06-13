@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://265jkdcrgk31"
+path="res://.godot/imported/Mara V (Personaje) - Facundo Túpac Martínez - jeretry_weighted.obj-a3b05759a894c449dd1fce322b0777b0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Mara V (Personaje) - Facundo Túpac Martínez - jeretry_weighted.obj-a3b05759a894c449dd1fce322b0777b0.mesh"]
+
+source_file="res://art/Mara V (Personaje) - Facundo Túpac Martínez - jeretry_weighted.obj"
+dest_files=["res://.godot/imported/Mara V (Personaje) - Facundo Túpac Martínez - jeretry_weighted.obj-a3b05759a894c449dd1fce322b0777b0.mesh", "res://.godot/imported/Mara V (Personaje) - Facundo Túpac Martínez - jeretry_weighted.obj-a3b05759a894c449dd1fce322b0777b0.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

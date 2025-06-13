@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1xs1chs4d233"]
+[gd_scene load_steps=8 format=3 uid="uid://c1xs1chs4d233"]
 
 [ext_resource type="Script" uid="uid://c575mvvf6qjtr" path="res://scenes/test.gd" id="1_74lek"]
 [ext_resource type="PackedScene" uid="uid://bcstmitlokbp" path="res://scenes/laberinto.tscn" id="3_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bdfux0ts7g1lf" path="res://characters/marav.tscn" id="4_74lek"]
+[ext_resource type="Shader" uid="uid://cgajy72ijmsuw" path="res://scenes/screen.gdshader" id="4_j5jx5"]
 
 [sub_resource type="Environment" id="Environment_iyx0m"]
 background_mode = 1
@@ -18,6 +19,13 @@ fog_enabled = true
 fog_light_color = Color(0.043079, 0.0511794, 0.0639145, 1)
 fog_density = 0.0382
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpvoh"]
+shader = ExtResource("4_j5jx5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_at5dv"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
 [node name="TestScene" type="Node3D"]
 script = ExtResource("1_74lek")
 
@@ -28,3 +36,16 @@ environment = SubResource("Environment_iyx0m")
 transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -72.9033, 22.4546, 0)
 
 [node name="Escena" parent="." instance=ExtResource("3_iyx0m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_lpvoh")
+mesh = SubResource("QuadMesh_at5dv")

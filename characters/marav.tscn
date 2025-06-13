@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdfux0ts7g1lf"]
 
-[ext_resource type="PackedScene" uid="uid://ctti8cy0ck0re" path="res://art/Mara V (Personaje) - Facundo Túpac Martínez.blend" id="1_ckq7e"]
 [ext_resource type="Script" uid="uid://0ca0irwwwrbi" path="res://characters/marav.gd" id="1_plonu"]
+[ext_resource type="PackedScene" uid="uid://cf4kmxw5umi8g" path="res://characters/maravanimado.tscn" id="2_plonu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckq7e"]
 radius = 0.225
@@ -11,19 +11,21 @@ height = 1.8
 safe_margin = 0.1
 script = ExtResource("1_plonu")
 
-[node name="Mara V (Personaje) - Facundo Túpac Martínez" parent="." instance=ExtResource("1_ckq7e")]
+[node name="Personaje" parent="." instance=ExtResource("2_plonu")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904957, 0)
 shape = SubResource("CapsuleShape3D_ckq7e")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5999, 1.24792, -1.74952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1729, 2.68057, -1.39263)
 light_energy = 0.457
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 2.98023e-08, 0, 0, 1, 0, 2, 0)
 spring_length = -2.0
-margin = -0.5
+margin = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(-0.997718, -0.0219308, -0.0638525, -0.0422687, 0.940383, 0.33748, 0.0526446, 0.339409, -0.939165, 0, 0.726685, -1.9626)
+transform = Transform3D(-1, 2.99003e-08, -8.21505e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 6.22702e-08, 3.12793, -4.17888)
+fov = 62.0
