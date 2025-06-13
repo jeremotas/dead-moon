@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const MAX_SPEED = 6.0
-const MIN_SPEED = 3.0
+const MAX_SPEED = 4.0
+const MIN_SPEED = 2.0
 const ACCELERATION  = 2.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_ACCELERATION = 0.2
@@ -11,40 +11,50 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var rotate_camera = 0.0
 var speed = 0.0
 var attacking = false
-
+var can_move = true
+var can_idle = true
 @onready var camera = $SpringArm3D/Camera3D
 
 func _physics_process(delta):
-	if $Personaje.last_anim_finished() == 'shout':
+	if $Personaje.last_anim_finished() == 'attack':
 		attacking = false
+		can_move = true
 		$Personaje.clear_last_anim_finished()
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	else:
+		can_move = true
+	elif $Personaje.get_state() == 'idle1':
+		can_move = true
 		velocity.y = 0.0
-		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+			
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not attacking:
 		velocity.y = JUMP_VELOCITY
+		can_move = false
 		
-	var forward_direction = camera.get_global_transform().basis.z
-	var lateral_direction = camera.get_global_transform().basis.x
 	var move_direction = Vector3.ZERO
-	if Input.is_action_pressed("strafe_left"):
-		move_direction -= lateral_direction
-	if Input.is_action_pressed("strafe_right"):
-		move_direction += lateral_direction
-	if Input.is_action_pressed("forward"):
-		move_direction = -forward_direction
-	if Input.is_action_pressed("backward"):
-		move_direction = forward_direction
-	if Input.is_action_just_pressed("attack"):
-		attacking = true
+	if can_move:	
+		var forward_direction = camera.get_global_transform().basis.z
+		var lateral_direction = camera.get_global_transform().basis.x
 		
-	if move_direction == Vector3.ZERO:
-		speed = 0.0
-	else:
-		speed = clamp(speed + ACCELERATION * delta, MIN_SPEED, MAX_SPEED)
+		if Input.is_action_pressed("strafe_left"):
+			move_direction -= lateral_direction
+		if Input.is_action_pressed("strafe_right"):
+			move_direction += lateral_direction
+		if Input.is_action_pressed("forward"):
+			move_direction = -forward_direction
+		if Input.is_action_pressed("backward"):
+			move_direction = forward_direction
+		if Input.is_action_just_pressed("attack") and not attacking:
+			$Personaje.do("attack")
+			attacking = true
+			can_move = false
+			
+			
+		if move_direction == Vector3.ZERO:
+			speed = 0.0
+		else:
+			speed = clamp(speed + ACCELERATION * delta, MIN_SPEED, MAX_SPEED)
 	
 	var direction = move_direction
 	if direction:
@@ -64,15 +74,13 @@ func _physics_process(delta):
 
 	if rotate_camera != 0:
 		rotate_y( rotate_camera * delta)
-	# print(velocity)
 	if attacking:
-		$Personaje.play_anim("shout")
+		pass
 	elif abs(velocity.y) > 0.5:
-		print(velocity.y)
-		$Personaje.play_anim("fall_idle")
-	elif velocity != Vector3.ZERO and is_on_floor():
-		$Personaje.play_anim("run")
-	elif is_on_floor():
-		$Personaje.play_anim("idle1")
+		$Personaje.do("fall_idle")
+	elif velocity.length() > 0.2 and is_on_floor():
+		$Personaje.do("run")
+	elif is_on_floor() and velocity.length() < 0.1 and not attacking:
+		$Personaje.do("idle1")
 	
 	move_and_slide()
