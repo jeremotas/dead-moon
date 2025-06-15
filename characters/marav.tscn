@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4kmxw5umi8g" path="res://characters/maravanimado.tscn" id="2_plonu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckq7e"]
-radius = 0.225
+radius = 0.35
 height = 1.8
 
 [node name="MaraV" type="CharacterBody3D"]

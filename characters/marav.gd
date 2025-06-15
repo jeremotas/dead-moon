@@ -13,13 +13,53 @@ var speed = 0.0
 var attacking = false
 var can_move = true
 var can_idle = true
+var live = 1
+var dead = false
+
 @onready var camera = $SpringArm3D/Camera3D
+var tween: Tween
+
+func _ready():
+	tween = create_tween()
+	
+
+func _process(delta):
+	pass
+		
+func camera_backwards():
+	if $Personaje.what_is_doing() != 'death2':
+		tween = create_tween()
+		tween.tween_property($SpringArm3D, "spring_length",$SpringArm3D.spring_length * 2 , 3.0)
+
+func get_sticks():
+	var left_stick = Vector2(
+		-Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		-Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	)
+	var right_stick = Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	)
+	if left_stick.length() < 0.2:
+		left_stick = Vector2.ZERO
+	if right_stick.length() < 0.2:
+		right_stick = Vector2.ZERO	
+	return {"left": left_stick, "right": right_stick}
 
 func _physics_process(delta):
+	if dead:
+		return 
 	if $Personaje.last_anim_finished() == 'attack':
 		attacking = false
 		can_move = true
 		$Personaje.clear_last_anim_finished()
+		live = live - 1
+	
+	if $Personaje.last_anim_finished() == 'death2':
+		dead = true
+		can_move = false
+		$Personaje.clear_last_anim_finished()
+		return
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -33,18 +73,28 @@ func _physics_process(delta):
 		can_move = false
 		
 	var move_direction = Vector3.ZERO
+	var oSticks = get_sticks()
 	if can_move:	
 		var forward_direction = camera.get_global_transform().basis.z
 		var lateral_direction = camera.get_global_transform().basis.x
 		
-		if Input.is_action_pressed("strafe_left"):
-			move_direction -= lateral_direction
-		if Input.is_action_pressed("strafe_right"):
-			move_direction += lateral_direction
-		if Input.is_action_pressed("forward"):
-			move_direction = -forward_direction
-		if Input.is_action_pressed("backward"):
-			move_direction = forward_direction
+		var input_vector = Vector2.ZERO
+		
+		#input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		#input_vector.y = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
+		#input_vector = input_vector.normalized()
+		move_direction.x = oSticks.left.x
+		move_direction.z = oSticks.left.y
+		# if Input.is_action_pressed("strafe_left"):
+		#	move_direction -= lateral_direction
+		#if Input.is_action_pressed("strafe_right"):
+		#	move_direction += lateral_direction
+		#if Input.is_action_pressed("forward"):
+		#	move_direction = -forward_direction
+		#if Input.is_action_pressed("backward"):
+		#	move_direction = forward_direction
+			
+			
 		if Input.is_action_just_pressed("attack") and not attacking:
 			$Personaje.do("attack")
 			attacking = true
@@ -74,12 +124,17 @@ func _physics_process(delta):
 
 	if rotate_camera != 0:
 		rotate_y( rotate_camera * delta)
-	if attacking:
+	if live == 0 and not dead:
+		camera_backwards()
+		$Personaje.do("death2")
+		
+	elif attacking:
 		pass
 	elif abs(velocity.y) > 0.5:
 		$Personaje.do("fall_idle")
 	elif velocity.length() > 0.2 and is_on_floor():
-		$Personaje.do("run")
+		$Personaje.do("rundirection")
+		$Personaje.movement(oSticks.left)
 	elif is_on_floor() and velocity.length() < 0.1 and not attacking:
 		$Personaje.do("idle1")
 	
