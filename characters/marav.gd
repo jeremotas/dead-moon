@@ -75,44 +75,33 @@ func _physics_process(delta):
 	var move_direction = Vector3.ZERO
 	var oSticks = get_sticks()
 	if can_move:	
-		var forward_direction = camera.get_global_transform().basis.z
-		var lateral_direction = camera.get_global_transform().basis.x
-		
-		var input_vector = Vector2.ZERO
-		
-		#input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		#input_vector.y = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
-		#input_vector = input_vector.normalized()
-		move_direction.x = oSticks.left.x
-		move_direction.z = oSticks.left.y
-		# if Input.is_action_pressed("strafe_left"):
-		#	move_direction -= lateral_direction
-		#if Input.is_action_pressed("strafe_right"):
-		#	move_direction += lateral_direction
-		#if Input.is_action_pressed("forward"):
-		#	move_direction = -forward_direction
-		#if Input.is_action_pressed("backward"):
-		#	move_direction = forward_direction
-			
-			
-		if Input.is_action_just_pressed("attack") and not attacking:
-			$Personaje.do("attack")
-			attacking = true
-			can_move = false
-			
-			
+		 # Obtener los ejes X (lateral) y Z (frontal) de la cámara
+		var camera_basis = camera.get_global_transform().basis
+		var forward = -camera_basis.z.normalized()  # hacia adelante en el mundo
+		var right = -camera_basis.x.normalized()     # hacia la derecha en el mundo
+
+		# Dirección del stick izquierdo
+		var stick_input = oSticks.left  # Vector2 con (x, y) entre -1 y 1
+
+		# Combinar input con orientación de cámara
+		move_direction = (right * stick_input.x) + (forward * stick_input.y)
+
+		# Normalizar si hay movimiento
+		if move_direction.length() > 0.1:
+			move_direction = move_direction.normalized()
+
+		# Velocidad según si te estás moviendo
 		if move_direction == Vector3.ZERO:
 			speed = 0.0
 		else:
 			speed = clamp(speed + ACCELERATION * delta, MIN_SPEED, MAX_SPEED)
 	
-	var direction = move_direction
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+	if move_direction:
+		velocity.x = move_direction.x * speed
+		velocity.z = move_direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, delta * 8)
-		velocity.z = move_toward(velocity.z, 0, delta * 8)
+		velocity.x = move_toward(velocity.x, 0, delta * 12)
+		velocity.z = move_toward(velocity.z, 0, delta * 12)
 	
 	if Input.is_action_pressed("turn_left"):
 		rotate_camera += ROTATION_ACCELERATION
