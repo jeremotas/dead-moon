@@ -13,7 +13,7 @@ var speed = 0.0
 var attacking = false
 var can_move = true
 var can_idle = true
-var live = 1
+var life = 1
 var dead = false
 
 @onready var camera = $SpringArm3D/Camera3D
@@ -53,7 +53,7 @@ func _physics_process(delta):
 		attacking = false
 		can_move = true
 		$Personaje.clear_last_anim_finished()
-		live = live - 1
+		life = life - 1
 	
 	if $Personaje.last_anim_finished() == 'death2':
 		dead = true
@@ -70,6 +70,11 @@ func _physics_process(delta):
 			
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not attacking:
 		velocity.y = JUMP_VELOCITY
+		can_move = false
+	
+	if Input.is_action_just_pressed("attack") and is_on_floor() and not attacking:
+		$Personaje.do("attack")
+		attacking = true
 		can_move = false
 		
 	var move_direction = Vector3.ZERO
@@ -113,7 +118,7 @@ func _physics_process(delta):
 
 	if rotate_camera != 0:
 		rotate_y( rotate_camera * delta)
-	if live == 0 and not dead:
+	if life == 0 and not dead:
 		camera_backwards()
 		$Personaje.do("death2")
 		
