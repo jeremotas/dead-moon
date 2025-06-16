@@ -64,6 +64,7 @@ light_energy = 100.0
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_lpvoh")
 autoplay = true
+panning_strength = 2.5
 
 [node name="Luna Invertida" parent="." instance=ExtResource("7_at5dv")]
 transform = Transform3D(-64.2171, 0, -47.7092, 0, 80, 0, 47.7092, 0, -64.2171, 148.892, 70.7479, -80.2477)

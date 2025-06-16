@@ -8,4 +8,5 @@ transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 
 script = ExtResource("2_6r8ox")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
-transform = Transform3D(0.996318, -1.00368, 1.4142, -1.00368, 0.996318, 1.4142, -1.4142, -1.4142, -0.00736524, 3.78726, 3.78726, 0)
+transform = Transform3D(0.498159, -0.501841, 0.707102, -0.501841, 0.498159, 0.707102, -0.707102, -0.707102, -0.0036826, 2.34504, 2.34504, 0)
+light_color = Color(0, 1, 1, 1)
