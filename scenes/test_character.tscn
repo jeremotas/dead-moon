@@ -21,6 +21,7 @@ transform = Transform3D(0.134764, 0, -0.990878, 0, 1, 0, 0.990878, 0, 0.134764, 
 
 [node name="MaraV" parent="." instance=ExtResource("1_1ft0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185086, 0)
+win = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

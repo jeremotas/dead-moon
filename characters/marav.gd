@@ -20,6 +20,7 @@ var can_move = true
 var can_idle = true
 var life = 1
 var dead = false
+@export var win = false
 
 @onready var camera = $SpringArm3D/Camera3D
 var tween: Tween
@@ -97,6 +98,11 @@ func _physics_process(delta):
 		dead = true
 		can_move = false
 		$Personaje.clear_last_anim_finished()
+		return
+	
+	if win:
+		$Personaje.do("headbang")
+		can_move = false
 		return
 	
 	if not is_on_floor():
