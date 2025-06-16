@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpj6x2jqqhkhb"
+path="res://.godot/imported/Effort sounds.wav-a99ab138e37774f8299cafd0bb8bb66e.sample"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Voz fem/Effort sounds.wav"
+dest_files=["res://.godot/imported/Effort sounds.wav-a99ab138e37774f8299cafd0bb8bb66e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

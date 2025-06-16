@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo734nnmfgkdy"
+path="res://.godot/imported/Damage sounds.wav-b7eb2df97ce8f8f93b528bab621c7a76.sample"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Voz fem/Damage sounds.wav"
+dest_files=["res://.godot/imported/Damage sounds.wav-b7eb2df97ce8f8f93b528bab621c7a76.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

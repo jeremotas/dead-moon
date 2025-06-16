@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cx7aw1qbbggyo"
+path="res://.godot/imported/Exterminate.mp3-59a6062343b5778a65b410d90f70c750.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Robot/Exterminate.mp3"
+dest_files=["res://.godot/imported/Exterminate.mp3-59a6062343b5778a65b410d90f70c750.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

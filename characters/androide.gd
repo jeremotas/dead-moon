@@ -21,10 +21,6 @@ func _process(delta):
 		can_move = false
 		$AndroideAnimado.clear_last_anim_finished()
 		return
-		
-	 #if not looking: 
-		 #var distance = player.global_position.distance_to()
-		
 	
 
 func hit():
@@ -32,8 +28,6 @@ func hit():
 	if life == 0:
 		dead = true
 		$AndroideAnimado.do("death")
-	
-	
 
 func _physics_process(delta):
 	velocity = Vector3.ZERO

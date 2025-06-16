@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dltw3ts5w4nfw"
+path="res://.godot/imported/sci-fi-weapon-single-shot-bass-heavy-02-316418.mp3-4ebfb7d17f9ecaf8cbced6a41762a8f4.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Ataques laser/sci-fi-weapon-single-shot-bass-heavy-02-316418.mp3"
+dest_files=["res://.godot/imported/sci-fi-weapon-single-shot-bass-heavy-02-316418.mp3-4ebfb7d17f9ecaf8cbced6a41762a8f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
