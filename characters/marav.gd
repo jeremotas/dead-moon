@@ -14,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var rotate_camera = 0.0
 var pitch_angle = 0.0  # Rotación vertical acumulada
 
+
 var speed = 0.0
 var attacking = false
 var can_move = true
@@ -24,6 +25,9 @@ var dead = false
 
 @onready var camera = $SpringArm3D/Camera3D
 var tween: Tween
+
+@export var BulletScene: PackedScene = load("res://scenes/bullet.tscn")
+
 
 func _ready():
 	tween = create_tween()
@@ -85,6 +89,28 @@ func get_sticks():
 		right_stick = Vector2.ZERO	
 	return {"left": left_stick, "right": right_stick}
 
+func shoot() -> void:
+	await get_tree().create_timer(0.7).timeout
+
+	if not BulletScene:
+		print("BulletScene no asignada")
+		return
+
+	var bullet = BulletScene.instantiate()
+
+	# Obtener dirección de disparo (-Z del personaje)
+	
+	
+	bullet.position = $Marker3D.global_position
+	bullet.transform.basis = $Marker3D.global_transform.basis
+	#var direction = global_transform.basis.z.normalized()
+	#bullet.direction = direction
+	
+	#var transform = Transform3D().looking_at($Aim3D.global_position + direction, Vector3.UP)
+	
+	
+	get_parent().add_child(bullet)
+
 func _physics_process(delta):
 	if dead:
 		return 
@@ -92,7 +118,7 @@ func _physics_process(delta):
 		attacking = false
 		can_move = true
 		$Personaje.clear_last_anim_finished()
-		life = life - 1
+		#life = life - 1
 	
 	if $Personaje.last_anim_finished() == 'death2':
 		dead = true
@@ -120,6 +146,7 @@ func _physics_process(delta):
 		$Personaje.do("attack")
 		attacking = true
 		can_move = false
+		shoot()
 		
 	var move_direction = Vector3.ZERO
 	var oSticks = get_sticks()
