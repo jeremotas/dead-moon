@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://n5wcqf0bfutq"]
+
+[ext_resource type="PackedScene" uid="uid://cxped11lr4s3h" path="res://art/Luna Invertida.glb" id="1_a0nek"]
+
+[node name="Luna Invertida" instance=ExtResource("1_a0nek")]
