@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://mu7xvuo10u1t"]
+
+[ext_resource type="Script" uid="uid://spy7x2l4b6ll" path="res://bullet.gd" id="1_mkf8s"]
+[ext_resource type="Shader" uid="uid://curhwq8v3bptp" path="res://scenes/bullet.gdshader" id="2_y25gk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y25gk"]
+render_priority = 0
+shader = ExtResource("2_y25gk")
+shader_parameter/core_color = Color(0.812665, 0.00202245, 0.97783, 1)
+shader_parameter/glow_color = Color(1, 0.47733, 0.893495, 0.5)
+shader_parameter/laser_width = 0.358
+shader_parameter/core_intensity = 4.263
+shader_parameter/core_length = 1.0
+shader_parameter/glow_fade = 0.1
+shader_parameter/glow_shape = 2.566
+shader_parameter/pulse_speed = 10.0
+shader_parameter/pulse_strength = 0.156
+shader_parameter/pulse_dir_x = 0.0
+shader_parameter/pulse_dir_y = 0.0
+shader_parameter/pulse_dir_z = 0.263
+shader_parameter/min_alpha = 0.0
+shader_parameter/noise_scale = 3.788
+shader_parameter/noise_speed = 1.41
+shader_parameter/noise_strength = 0.1
+shader_parameter/length_noise_scale = 2.0
+shader_parameter/length_noise_speed = 0.5
+shader_parameter/length_noise_strength = 0.05
+shader_parameter/osc_amplitude = 0.01
+shader_parameter/osc_frequency = 6.393
+shader_parameter/osc_speed = 9.014
+
+[sub_resource type="BoxMesh" id="BoxMesh_mkf8s"]
+material = SubResource("ShaderMaterial_y25gk")
+size = Vector3(0.125, 0.125, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkf8s"]
+size = Vector3(0.125, 0.125, 0.75)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y25gk"]
+radial_velocity_min = -0.100022
+radial_velocity_max = 0.0999776
+gravity = Vector3(0, 0, -1)
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5glv"]
+transparency = 1
+albedo_color = Color(0.972549, 0, 0.972549, 1)
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 100.0
+emission_operator = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_eoqba"]
+material = SubResource("StandardMaterial3D_l5glv")
+radius = 0.08
+height = 0.16
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_mkf8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_mkf8s")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_mkf8s")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.323331)
+amount = 18
+lifetime = 0.15
+process_material = SubResource("ParticleProcessMaterial_y25gk")
+draw_pass_1 = SubResource("SphereMesh_eoqba")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
