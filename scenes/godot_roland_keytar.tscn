@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0oif2v11khr3"]
+
+[ext_resource type="PackedScene" uid="uid://yco28tatypbk" path="res://art/GODOT_Roland_keytar.blend" id="1_c34lx"]
+[ext_resource type="Script" uid="uid://bs1xi7uuvkd6i" path="res://godot_roland_keytar.gd" id="2_6r8ox"]
+
+[node name="GODOT_Roland_keytar" instance=ExtResource("1_c34lx")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_6r8ox")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(0.996318, -1.00368, 1.4142, -1.00368, 0.996318, 1.4142, -1.4142, -1.4142, -0.00736524, 3.78726, 3.78726, 0)

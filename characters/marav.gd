@@ -6,9 +6,14 @@ const ACCELERATION  = 2.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_ACCELERATION = 0.2
 const MAX_ROTATION_SPEED = 4.0
+const MAX_PITCH_ANGLE = 20.0 * PI / 180.0
+const PITCH_SPEED = 1.0
+const STICK_SENSITIVITY = 2.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var rotate_camera = 0.0
+var pitch_angle = 0.0  # Rotación vertical acumulada
+
 var speed = 0.0
 var attacking = false
 var can_move = true
@@ -24,7 +29,40 @@ func _ready():
 	
 
 func _process(delta):
-	pass
+	
+	var sticks = get_sticks()
+	var right_stick = sticks["right"]
+	if life == 0:
+		right_stick = Vector2(0.0, 0.0)
+
+	# -------- Rotación horizontal (Y) --------
+	var rotate_input = -right_stick.x * STICK_SENSITIVITY
+
+	if abs(rotate_input) > 0:
+		rotate_camera = lerp(rotate_camera, rotate_input, 0.1)
+	else:
+		rotate_camera = lerp(rotate_camera, 0.0, 0.1)
+
+	rotate_camera = clamp(rotate_camera, -MAX_ROTATION_SPEED, MAX_ROTATION_SPEED)
+
+	if abs(rotate_camera) > 0.4:
+		rotate_y(rotate_camera * delta)  # <- rota el nodo Player directamente
+
+	# -------- Rotación vertical (X) --------
+	var pitch_input = right_stick.y * STICK_SENSITIVITY  # invertido: arriba = mirar arriba
+
+	if abs(pitch_input) > 0.5:
+		pitch_angle += pitch_input * delta * PITCH_SPEED
+	else:
+		pitch_angle = lerp(pitch_angle, 0.0, 0.1)  # volver al centro
+
+	pitch_angle = clamp(pitch_angle, -MAX_PITCH_ANGLE, MAX_PITCH_ANGLE)
+
+	# Aplicar rotación al SpringArm3D (en X)
+	var springarm = $SpringArm3D
+	var rot = springarm.rotation_degrees
+	rot.x = pitch_angle * 180.0 / PI
+	springarm.rotation_degrees = rot
 		
 func camera_backwards():
 	if $Personaje.what_is_doing() != 'death2':
@@ -108,16 +146,18 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, delta * 12)
 		velocity.z = move_toward(velocity.z, 0, delta * 12)
 	
-	if Input.is_action_pressed("turn_left"):
-		rotate_camera += ROTATION_ACCELERATION
-	if Input.is_action_pressed("turn_right"):
-		rotate_camera -= ROTATION_ACCELERATION
-	if not Input.is_action_pressed("turn_left") and not Input.is_action_pressed("turn_right"):
-		rotate_camera = 0
-	rotate_camera = clamp(rotate_camera, -MAX_ROTATION_SPEED, MAX_ROTATION_SPEED)
+	#if Input.is_action_pressed("turn_left"):
+	#	rotate_camera += ROTATION_ACCELERATION
+	#if Input.is_action_pressed("turn_right"):
+	#	rotate_camera -= ROTATION_ACCELERATION
+	#if not Input.is_action_pressed("turn_left") and not Input.is_action_pressed("turn_right"):
+	#	rotate_camera = 0
+	#rotate_camera = clamp(rotate_camera, -MAX_ROTATION_SPEED, MAX_ROTATION_SPEED)
 
-	if rotate_camera != 0:
-		rotate_y( rotate_camera * delta)
+	#if rotate_camera != 0:
+	#	rotate_y( rotate_camera * delta)
+		
+		
 	if life == 0 and not dead:
 		camera_backwards()
 		$Personaje.do("death2")

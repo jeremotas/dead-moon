@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1xs1chs4d233"]
+[gd_scene load_steps=10 format=3 uid="uid://c1xs1chs4d233"]
 
 [ext_resource type="Script" uid="uid://c575mvvf6qjtr" path="res://scenes/test.gd" id="1_74lek"]
 [ext_resource type="PackedScene" uid="uid://cr5a75gdd2ekt" path="res://characters/androide.tscn" id="2_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://bcstmitlokbp" path="res://scenes/laberinto.tscn" id="3_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bdfux0ts7g1lf" path="res://characters/marav.tscn" id="4_74lek"]
 [ext_resource type="Shader" uid="uid://cgajy72ijmsuw" path="res://scenes/screen.gdshader" id="4_j5jx5"]
+[ext_resource type="AudioStream" uid="uid://rel738eivwyr" path="res://art/Audios FX y musica/Dead Moon  - Mara V.mp3" id="6_lpvoh"]
 
 [sub_resource type="Environment" id="Environment_iyx0m"]
 background_mode = 1
@@ -37,20 +38,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5033, 0, -19.1492)
 environment = SubResource("Environment_iyx0m")
 
 [node name="MaraV" parent="." instance=ExtResource("4_74lek")]
-transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -72.9033, 22.4546, 0)
+transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -72.9033, 35.355, 0)
 
 [node name="Escena" parent="." instance=ExtResource("3_iyx0m")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CRT" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CRT"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/HBoxContainer"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CRT/HBoxContainer"]
 material = SubResource("ShaderMaterial_lpvoh")
 mesh = SubResource("QuadMesh_at5dv")
 
@@ -58,3 +59,7 @@ mesh = SubResource("QuadMesh_at5dv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.247, 0)
 light_color = Color(1, 0.156863, 1, 1)
 light_energy = 5.05
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_lpvoh")
+autoplay = true
