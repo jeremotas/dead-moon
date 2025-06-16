@@ -3,7 +3,7 @@ extends CharacterBody3D
 const MAX_SPEED = 4.0
 const MIN_SPEED = 2.0
 const ACCELERATION  = 2.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 6.5
 const ROTATION_ACCELERATION = 0.2
 const MAX_ROTATION_SPEED = 4.0
 const MAX_PITCH_ANGLE = 20.0 * PI / 180.0
@@ -161,6 +161,7 @@ func _physics_process(delta):
 	if life == 0 and not dead:
 		camera_backwards()
 		$Personaje.do("death2")
+		can_move = false
 		
 	elif attacking:
 		pass
