@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://drbx8gvsexgti"]
 
 [ext_resource type="PackedScene" uid="uid://bdfux0ts7g1lf" path="res://characters/marav.tscn" id="1_1ft0k"]
+[ext_resource type="PackedScene" uid="uid://dim7sg5mewcbj" path="res://scenes/espejo_col.tscn" id="1_cu1ws"]
 [ext_resource type="PackedScene" uid="uid://cr5a75gdd2ekt" path="res://characters/androide.tscn" id="1_tb1xc"]
 [ext_resource type="PackedScene" uid="uid://b0oif2v11khr3" path="res://scenes/godot_roland_keytar.tscn" id="3_84abk"]
-[ext_resource type="PackedScene" uid="uid://cg4x1qqi5uv8g" path="res://scenes/espejo.tscn" id="4_cu1ws"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tb1xc"]
 size = Vector2(20, 20)
@@ -12,6 +12,9 @@ size = Vector2(20, 20)
 size = Vector3(20, 0.1, 20)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Espejo" parent="." instance=ExtResource("1_cu1ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.14926)
 
 [node name="Androide" parent="." instance=ExtResource("1_tb1xc")]
 transform = Transform3D(0.134764, 0, -0.990878, 0, 1, 0, 0.990878, 0, 0.134764, 5.45658, 0, 0)
@@ -33,6 +36,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39185, 3.41488, 13.5128)
 
 [node name="GODOT_Roland_keytar" parent="." instance=ExtResource("3_84abk")]
 transform = Transform3D(0.353553, -0.353553, 0, 0.353553, 0.353553, 0, 0, 0, 0.5, 0, 1.34215, -1.85842)
-
-[node name="Espejo v2" parent="." instance=ExtResource("4_cu1ws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

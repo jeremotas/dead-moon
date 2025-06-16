@@ -13,7 +13,9 @@ config_version=5
 config/name="Dead Moon"
 run/main_scene="uid://c1xs1chs4d233"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/use_filter=false
+boot_splash/image="uid://bu2quon82tl56"
 config/icon="res://icon.svg"
 
 [display]

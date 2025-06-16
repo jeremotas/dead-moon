@@ -32,10 +32,10 @@ center_offset = Vector3(640, 360, 0)
 [node name="TestScene" type="Node3D"]
 script = ExtResource("1_74lek")
 
-[node name="Androide10" parent="." instance=ExtResource("2_j5jx5")]
-transform = Transform3D(0.346739, 0, 0.937961, 0, 1, 0, -0.937961, 0, 0.346739, 30.2861, 0, -19.9244)
+[node name="Androide11" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(-0.759543, 0, 0.650456, 0, 1, 0, -0.650456, 0, -0.759543, 22.0992, 0, -55.2401)
 
-[node name="Androide10" parent="Androide10" instance=ExtResource("2_j5jx5")]
+[node name="Androide10" parent="." instance=ExtResource("2_j5jx5")]
 transform = Transform3D(0.346739, 0, 0.937961, 0, 1, 0, -0.937961, 0, 0.346739, 30.2861, 0, -19.9244)
 
 [node name="Androide8" parent="." instance=ExtResource("2_j5jx5")]
@@ -71,6 +71,15 @@ environment = SubResource("Environment_iyx0m")
 [node name="MaraV" parent="." instance=ExtResource("4_74lek")]
 transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -72.9033, 35.355, 0)
 
+[node name="Luna Invertida" parent="." instance=ExtResource("7_at5dv")]
+transform = Transform3D(-59.8331, 0, -53.1037, 0, 80, 0, 53.1037, 0, -59.8331, 148.892, 70.7479, -80.2477)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.84, 33.385, 689.158)
+light_color = Color(0.801687, 0.110668, 1, 1)
+light_energy = 10.0
+sky_mode = 1
+
 [node name="Escena" parent="." instance=ExtResource("3_iyx0m")]
 
 [node name="CRT" type="CanvasLayer" parent="."]
@@ -86,15 +95,14 @@ grow_vertical = 2
 material = SubResource("ShaderMaterial_lpvoh")
 mesh = SubResource("QuadMesh_at5dv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.980921, -0.194406, 0, 0.194406, 0.980921, 26.0292, 60.9988, 160.491)
-light_color = Color(1, 0.156863, 1, 1)
-light_energy = 100.0
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_lpvoh")
 autoplay = true
 panning_strength = 2.5
 
-[node name="Luna Invertida" parent="." instance=ExtResource("7_at5dv")]
-transform = Transform3D(-64.2171, 0, -47.7092, 0, 80, 0, 47.7092, 0, -64.2171, 148.892, 70.7479, -80.2477)
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.233225, 0, -0.972423, 0, 1, 0, 0.972423, 0, 0.233225, -46.8904, 66.975, -39.6902)
+light_color = Color(0.157593, 0.000220728, 0.424273, 1)
+light_energy = 2e+07
+spot_range = 404.485
+spot_angle = 32.2839

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bchgyi68semij"]
+
+[ext_resource type="PackedScene" uid="uid://cgbryd7fc7pxy" path="res://scenes/estatua.tscn" id="1_cwbwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uoq1a"]
+size = Vector3(1.2, 3.2, 1.2)
+
+[node name="Estatua" type="RigidBody3D"]
+
+[node name="Estatua" parent="." instance=ExtResource("1_cwbwh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.34469, 0)
+shape = SubResource("BoxShape3D_uoq1a")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgbryd7fc7pxy"]
+
+[ext_resource type="PackedScene" uid="uid://bjndc3avd6uq6" path="res://art/Estatua.glb" id="1_rpi62"]
+
+[node name="Estatua" instance=ExtResource("1_rpi62")]
