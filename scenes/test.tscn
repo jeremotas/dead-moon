@@ -32,8 +32,38 @@ center_offset = Vector3(640, 360, 0)
 [node name="TestScene" type="Node3D"]
 script = ExtResource("1_74lek")
 
+[node name="Androide10" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.346739, 0, 0.937961, 0, 1, 0, -0.937961, 0, 0.346739, 30.2861, 0, -19.9244)
+
+[node name="Androide10" parent="Androide10" instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.346739, 0, 0.937961, 0, 1, 0, -0.937961, 0, 0.346739, 30.2861, 0, -19.9244)
+
+[node name="Androide8" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.327317, 0, -0.944915, 0, 1, 0, 0.944915, 0, 0.327317, 30.7719, 0, 29.1671)
+
+[node name="Androide9" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(-0.759543, 0, 0.650456, 0, 1, 0, -0.650456, 0, -0.759543, 9.34692, 0, -43.2124)
+
+[node name="Androide7" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.346739, 0, 0.937961, 0, 1, 0, -0.937961, 0, 0.346739, 1.22322, 0, -19.9244)
+
+[node name="Androide6" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.820591, 0, 0.571516, 0, 1, 0, -0.571516, 0, 0.820591, 18.2704, 0, -5.20851)
+
+[node name="Androide5" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.954094, 0, 0.299507, 0, 1, 0, -0.299507, 0, 0.954094, 10.0127, 0, 37.1859)
+
+[node name="Androide3" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(0.0165101, 0, -0.999864, 0, 1, 0, 0.999864, 0, 0.0165101, -18.7124, 0, 26.3779)
+
+[node name="Androide2" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8723, 0, -38.2984)
+
 [node name="Androide" parent="." instance=ExtResource("2_j5jx5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5033, 0, -19.1492)
+transform = Transform3D(0.358319, 0, -0.933599, 0, 1, 0, 0.933599, 0, 0.358319, -42.8218, 0, -19.1492)
+
+[node name="Androide4" parent="." instance=ExtResource("2_j5jx5")]
+transform = Transform3D(-0.814652, 0, 0.57995, 0, 1, 0, -0.57995, 0, -0.814652, -39.8723, 0, 32.6046)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_iyx0m")
