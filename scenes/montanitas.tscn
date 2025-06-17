@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqwkfldqw7q6f"]
+
+[ext_resource type="PackedScene" uid="uid://2di65wfxrl2e" path="res://art/Laberinto_Jeremias_Cavallero_GridConMontanitas2.glb" id="1_ikkos"]
+
+[node name="Laberinto_Jeremias_Cavallero_GridConMontanitas2" instance=ExtResource("1_ikkos")]

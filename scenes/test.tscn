@@ -80,7 +80,7 @@ player_path = NodePath("../MaraV")
 environment = SubResource("Environment_iyx0m")
 
 [node name="MaraV" parent="." instance=ExtResource("4_74lek")]
-transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -72.9033, 35.355, 0)
+transform = Transform3D(-0.124744, 0, 0.992189, 0, 1, 0, -0.992189, 0, -0.124744, -64.9033, 35.355, -12)
 
 [node name="Luna Invertida" parent="." instance=ExtResource("7_at5dv")]
 transform = Transform3D(-59.8331, 0, -53.1037, 0, 80, 0, 53.1037, 0, -59.8331, 148.892, 70.7479, -80.2477)
