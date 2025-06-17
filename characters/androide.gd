@@ -5,7 +5,7 @@ var can_move = true
 var player = null
 var looking = true
 
-const SPEED = 1.0
+const SPEED = 3.0
 
 @export var player_path : NodePath
 @onready var nav_agent = $NavigationAgent3D

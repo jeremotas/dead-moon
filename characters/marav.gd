@@ -41,17 +41,18 @@ func _process(delta):
 		right_stick = Vector2(0.0, 0.0)
 
 	# -------- Rotación horizontal (Y) --------
-	var rotate_input = -right_stick.x * STICK_SENSITIVITY
+	if can_move:
+		var rotate_input = -right_stick.x * STICK_SENSITIVITY
 
-	if abs(rotate_input) > 0:
-		rotate_camera = lerp(rotate_camera, rotate_input, 0.1)
-	else:
-		rotate_camera = lerp(rotate_camera, 0.0, 0.1)
+		if abs(rotate_input) > 0:
+			rotate_camera = lerp(rotate_camera, rotate_input, 0.1)
+		else:
+			rotate_camera = lerp(rotate_camera, 0.0, 0.1)
 
-	rotate_camera = clamp(rotate_camera, -MAX_ROTATION_SPEED, MAX_ROTATION_SPEED)
+		rotate_camera = clamp(rotate_camera, -MAX_ROTATION_SPEED, MAX_ROTATION_SPEED)
 
-	if abs(rotate_camera) > 0.4:
-		rotate_y(rotate_camera * delta)  # <- rota el nodo Player directamente
+		if abs(rotate_camera) > 0.4:
+			rotate_y(rotate_camera * delta)  # <- rota el nodo Player directamente
 
 	# -------- Rotación vertical (X) --------
 	var pitch_input = right_stick.y * STICK_SENSITIVITY  # invertido: arriba = mirar arriba
