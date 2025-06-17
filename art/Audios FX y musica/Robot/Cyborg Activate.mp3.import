@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbrq24825wf78"
+path="res://.godot/imported/Cyborg Activate.mp3-bb651151da945118c9585004078644e9.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Robot/Cyborg Activate.mp3"
+dest_files=["res://.godot/imported/Cyborg Activate.mp3-bb651151da945118c9585004078644e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

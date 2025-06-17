@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f5vd5q68k355"
+path="res://.godot/imported/Anomaly detected.mp3-45ee5536065383d5c80003e58373cb05.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Robot/Anomaly detected.mp3"
+dest_files=["res://.godot/imported/Anomaly detected.mp3-45ee5536065383d5c80003e58373cb05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

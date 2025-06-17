@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cynn64pbgk0nx"
+path="res://.godot/imported/Systems failure.mp3-fa26d0816bf423a62b4f1887fd9507b1.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Robot/Systems failure.mp3"
+dest_files=["res://.godot/imported/Systems failure.mp3-fa26d0816bf423a62b4f1887fd9507b1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

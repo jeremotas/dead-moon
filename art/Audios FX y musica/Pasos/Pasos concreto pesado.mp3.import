@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6q5xu8evbxd2"
+path="res://.godot/imported/Pasos concreto pesado.mp3-9e0f83cc01134b9e4d6ac361c19e7c19.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Pasos/Pasos concreto pesado.mp3"
+dest_files=["res://.godot/imported/Pasos concreto pesado.mp3-9e0f83cc01134b9e4d6ac361c19e7c19.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

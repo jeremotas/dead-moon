@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc58wnye3hqjf"
+path="res://.godot/imported/laser-cannon-02-33201.mp3-09c45a9bc9bd20e818d92b4a07647827.mp3str"
+
+[deps]
+
+source_file="res://art/Audios FX y musica/Ataques laser/laser-cannon-02-33201.mp3"
+dest_files=["res://.godot/imported/laser-cannon-02-33201.mp3-09c45a9bc9bd20e818d92b4a07647827.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
