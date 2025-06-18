@@ -19,6 +19,7 @@ shape = SubResource("CapsuleShape3D_ckq7e")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1729, 2.68057, -1.39263)
+light_color = Color(0.996374, 0.623921, 1, 1)
 light_energy = 0.457
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]

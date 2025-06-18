@@ -110,6 +110,12 @@ stream = ExtResource("6_lpvoh")
 autoplay = true
 panning_strength = 2.5
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.485747, 0.551529, -0.678134, -0.321168, 0.834155, 0.44837, 0.812958, 0, 0.582322, -145.858, 133.95, 263.541)
+light_energy = 500.0
+spot_range = 404.485
+spot_angle = 32.2839
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.233225, 0, -0.972423, 0, 1, 0, 0.972423, 0, 0.233225, -144.955, 66.975, -39.6902)
 light_color = Color(0.157593, 0.000220728, 0.424273, 1)

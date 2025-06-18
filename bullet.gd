@@ -2,9 +2,10 @@ extends Node3D
 
 @export var speed = 40.0
 var direction = Vector3.ZERO
+@export var direction_value = 1.0
 
 func _process(delta):
-	position += transform.basis  * Vector3(0.0, 0.0, speed) * delta
+	position += transform.basis  * Vector3(0.0, 0.0, speed * direction_value) * delta
 
 	# Opcional: destruir después de cierto tiempo
 	await get_tree().create_timer(3.0).timeout

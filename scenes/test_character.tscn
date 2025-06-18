@@ -22,7 +22,7 @@ size = Vector3(20, 0.1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.14926)
 
 [node name="Androide" parent="." instance=ExtResource("1_tb1xc")]
-transform = Transform3D(0.134764, 0, -0.990878, 0, 1, 0, 0.990878, 0, 0.134764, 5.45658, 0, 0)
+transform = Transform3D(0.134764, 0, -0.990878, 0, 1, 0, 0.990878, 0, 0.134764, 8.16281, 0, 7.90701)
 player_path = NodePath("../MaraV")
 
 [node name="MaraV" parent="." instance=ExtResource("1_1ft0k")]
