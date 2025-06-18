@@ -74,7 +74,12 @@ func camera_backwards():
 	if $Personaje.what_is_doing() != 'death2':
 		tween = create_tween()
 		tween.tween_property($SpringArm3D, "spring_length",$SpringArm3D.spring_length * 2 , 3.0)
-
+		
+func hit():
+	life = life - 1
+	if life == 0:
+		$Personaje.do("death2")
+		
 func get_sticks():
 	var left_stick = Vector2(
 		-Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
